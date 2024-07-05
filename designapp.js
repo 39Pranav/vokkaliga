@@ -117,8 +117,8 @@ function togglePermanentAddress() {
         var checkbox = document.querySelector('input[name="same_as_current"]');
         var div = document.getElementById('Permanent_address');
         
-        if (checkbox.checked) {
-            div.style.display = 'none';
+        if (checkbox.checked) { 
+            div.style.display = 'none';       
         } else {
             div.style.display = 'flex';
         }
