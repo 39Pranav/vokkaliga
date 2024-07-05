@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <div class="logo-circle">V</div>
+                <div class="logo-text">Vokkaliga</div>
+            </div>
+            <form>
+                <div class="input-group">
+                    <label for="username">
+                        <span class="icon">&#x2709;</span>
+                        <input type="text" id="username" name="username" placeholder="user">
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label for="password">
+                        <span class="icon">&#x1F511;</span>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="keep-logged-in" name="keep-logged-in">
+                    <label for="keep-logged-in">Keep me logged in.</label>
+                </div>
+                <button type="submit" class="login-button">LOGIN</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const correctUsername = 'user';
+            const correctPassword = 'password';
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === correctUsername && password === correctPassword) {
+                const loginTime = new Date();
+                localStorage.setItem('username',username);
+                localStorage.setItem('loginTime', loginTime);
+                window.location.href = 'dashboard.html'; 
+            } else {
+                alert('Incorrect username or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
